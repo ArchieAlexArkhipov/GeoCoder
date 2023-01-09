@@ -7,7 +7,30 @@
 * Создать файл `.env` в формате `example.env`: указать свободный порт, ключ API Яндекс Карт. Поместить `.env` рядом с app.
 * Запустить ./app 
 
-Пример GET запроса к микросервису curl --request GET \
-  --url 'http://mallmap.ru:4444/geocode?address=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%BC%D0%B8%D0%BA%D0%BB%D1%83%D1%85%D0%BE-%D0%BC%D0%B0%D0%BA%D0%BB%D0%B0%D1%8F%2C%20%D0%B4%2041' \
-  --header 'Authorization: caaba14c-c123-460e-b48b-f3d77749026a' \
-  --header 'Content-Type: application/json'
+## Протестировать микросервис можно по адресу http://gogeocoder.ru
+Пример GET запроса к микросервису для определения полного адреса по координатам:
+
+```
+curl --request GET \
+  --url 'http://gogeocoder.ru:4444/reverse-geocode?lat=55.7361783299725&lng=37.62344576776365' \
+  --header 'Authorization: caaba14c-c123-460e-b48b-f3d77749026a'
+```
+ 
+Ответ: 
+```
+{"address":"Russian Federation, Moscow, Bolshaya Ordynka Street, 42",
+ "detailedAddress":{"FormattedAddress":"Russian Federation, Moscow, Bolshaya Ordynka Street, 42",
+                     "Street":"Bolshaya Ordynka Street",
+                     "HouseNumber":"42",
+                     "Suburb":"",
+                     "Postcode":"119017",
+                     "State":"Moscow",
+                     "StateCode":"",
+                     "StateDistrict":"",
+                     "County":"",
+                     "Country":"Russian Federation",
+                     "CountryCode":"RU",
+                     "City":"Moscow"},
+ "error":null,
+ "message":"success",
+ "status":true}```
