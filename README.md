@@ -33,4 +33,5 @@ curl --request GET \
                      "City":"Moscow"},
  "error":null,
  "message":"success",
- "status":true}```
+ "status":true}
+```
